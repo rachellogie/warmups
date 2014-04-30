@@ -29,11 +29,17 @@ class Dogs
   # only edit below this line
 
   def small_dogs
-    # only use the @dogs instance variable
+    small_dogs_array = []
+    @dogs.each do |dog|
+      if dog[:size] == :small
+        small_dogs_array << dog
+      end
+    end
+    small_dogs_array
   end
 
   def huge_dog
-    # only use the @dogs instance variable
+    
   end
 
   def large_dog_names
