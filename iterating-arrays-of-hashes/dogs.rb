@@ -49,13 +49,7 @@ class Dogs
   end
 
   def owners
-    owners = []
-    @dogs.each do |dog|
-      unless owners.include? "#{dog[:owner][:name][:first]} #{dog[:owner][:name][:last]}"
-        owners << "#{dog[:owner][:name][:first]} #{dog[:owner][:name][:last]}"
-      end
-    end
-    owners
+    @dogs.map { |dog| "#{dog[:owner][:name][:first]} #{dog[:owner][:name][:last]}" }.uniq
   end
 
   def average_owners
