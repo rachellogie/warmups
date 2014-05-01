@@ -41,25 +41,11 @@ class Dogs
   end
 
   def joes_large_dogs
-    names = []
-    @dogs.each do |dog|
-      if dog[:owner][:name][:first] == "Joe"
-        if dog[:size] == :large
-          names << dog[:name]
-        end
-      end
-    end
-    names
+    @dogs.select { |dog| dog[:owner][:name][:first] == "Joe" }.select{ |dog| dog[:size] == :large }.map { |dog| dog[:name]}
   end
 
   def sizes
-    sizes = []
-    @dogs.each do |dog|
-      unless sizes.include? dog[:size]
-        sizes << dog[:size]
-      end
-    end
-    sizes
+    @dogs.map { |dog| dog[:size]}.uniq
   end
 
   def owners
