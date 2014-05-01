@@ -53,14 +53,6 @@ class Dogs
   end
 
   def average_owners
-    owners = []
-    @dogs.each do |dog|
-      unless owners.include? "#{dog[:owner][:name][:first]} #{dog[:owner][:name][:last]}"
-        if dog[:owner][:owner_quality] == AVERAGE
-          owners << "#{dog[:owner][:name][:first]} #{dog[:owner][:name][:last]}"
-        end
-      end
-    end
-    owners
+    @dogs.select { |dog| dog[:owner][:owner_quality] == AVERAGE }.map { |dog| "#{dog[:owner][:name][:first]} #{dog[:owner][:name][:last]}"}.uniq
   end
 end
