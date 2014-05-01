@@ -37,13 +37,7 @@ class Dogs
   end
 
   def large_dog_names
-    names = []
-    @dogs.each do |dog|
-      if dog[:size] == :large
-        names << dog[:name]
-      end
-    end
-    names
+    @dogs.select{ |dog| dog[:size] == :large }.map { |dog| dog[:name]}
   end
 
   def joes_large_dogs
